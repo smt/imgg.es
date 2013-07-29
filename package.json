@@ -1,9 +1,20 @@
 {
     "name": "bukwiltk.es",
     "description": "Proxy for the most awesome image sites in the universe",
+    "maintainers": "stephen <smtudor@gmail.com>",
+    "author": "Stephen Tudor <smtudor@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/smt/bukwiltk.es.git"
+    },
+    "users": {
+        "johnmichel": true
+    },
     "version": "0.0.1",
-    "private": true,
     "dependencies": {
-        "express": "3.3.4"
+        "express": "3.3.4",
+        "async": "0.2.9",
+        "request": "2.25.0",
+        "cheerio": "0.12.0"
     }
 }
