@@ -1,6 +1,7 @@
 var async = require('async');
 var cheerio = require('cheerio');
 var crypto = require('crypto');
+var fs = require('fs');
 var request = require('request');
 
 async.map(['http://bukk.it', 'http://wil.to/_', 'http://misatkes.com'],
@@ -39,6 +40,9 @@ async.map(['http://bukk.it', 'http://wil.to/_', 'http://misatkes.com'],
                 return 0;
             });
             console.log(images);
+            console.log('Processed ' + images.length + ' images');
+            images = JSON.stringify(images);
+            fs.writeFile('images.json', images);
         });
     }
 );
