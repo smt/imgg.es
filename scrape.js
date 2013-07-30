@@ -1,8 +1,13 @@
 var async = require('async');
 var cheerio = require('cheerio');
 var crypto = require('crypto');
+var execTime = require('exec-time')
 var fs = require('fs');
 var request = require('request');
+
+var profiler = new execTime('processing sites');
+
+profiler.beginProfiling();
 
 async.map(['http://bukk.it', 'http://wil.to/_', 'http://misatkes.com'],
     function (origin, mapCallback) {
@@ -43,7 +48,7 @@ async.map(['http://bukk.it', 'http://wil.to/_', 'http://misatkes.com'],
             console.log('Processed ' + images.length + ' images');
             images = JSON.stringify(images);
             fs.writeFile('images.json', images);
+            profiler.step('done');
         });
     }
 );
-
