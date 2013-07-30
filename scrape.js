@@ -33,7 +33,7 @@ async.map(['http://bukk.it', 'http://wil.to/_', 'http://misatkes.com'],
     function (err, results) {
         if (err || !results || !results.length) return console.log('async.map: %s - %s', err, results);
         var images;
-        async.series(results, function (err, results) {
+        async.parallel(results, function (err, results) {
             if (err || !results || !results.length) return console.log('async.series: %s - %s', err, results);
             var i, len, args = [];
             for (i = 1, len = results.length; i < len; i++) {
