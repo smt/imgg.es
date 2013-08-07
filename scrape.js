@@ -9,7 +9,7 @@ var profiler = new execTime('processing sites');
 
 profiler.beginProfiling();
 
-async.map(['http://bukk.it', 'http://wil.to/_', 'http://misatkes.com'],
+async.map(['http://bukk.it', 'http://wil.to/_/', 'http://misatkes.com', 'http://meyerweb.com/bkkt/'],
     function (origin, mapCallback) {
         mapCallback(null, function (seriesCallback) {
             request(origin, function (err, res, body) {
