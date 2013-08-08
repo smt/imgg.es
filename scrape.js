@@ -5,11 +5,12 @@ var execTime = require('exec-time')
 var fs = require('fs');
 var request = require('request');
 
+var protocol = 'http://';
 var sites = [
-    'http://bukk.it',
-    'http://wil.to/_',
-    'http://misatkes.com',
-    'http://meyerweb.com/bkkt'
+    'bukk.it',
+    'wil.to/_',
+    'misatkes.com',
+    'meyerweb.com/bkkt'
 ];
 
 var profiler = new execTime('processing sites');
@@ -50,7 +51,7 @@ function mapDone(err, results) {
 }
 
 function createLink(origin, name) {
-    var url = origin + '/' + name;
+    var url = protocol + origin + '/' + name;
     return {
         id: crypto.createHash('md5').update(url).digest('hex'),
         url: url,
@@ -61,7 +62,7 @@ function createLink(origin, name) {
 
 function eachOrigin(origin, callback) {
     return callback(null, function (parallelCallback) {
-        return request(origin, function (err, res, body) {
+        return request(protocol + origin, function (err, res, body) {
             var $ = cheerio.load(body);
             var selector = 'a[href$=".gif"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"]';
             var links = [];
