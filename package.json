@@ -1,11 +1,12 @@
 {
-    "name": "bukwiltk.es",
+    "name": "imgg.es",
     "description": "Proxy for the most awesome image sites in the universe",
+    "homepage": "http://imgg.es",
     "maintainers": "stephen <smtudor@gmail.com>",
     "author": "Stephen Tudor <smtudor@gmail.com>",
     "repository": {
         "type": "git",
-        "url": "git://github.com/smt/bukwiltk.es.git"
+        "url": "git://github.com/smt/imgg.es.git"
     },
     "users": {
         "johnmichel": true
