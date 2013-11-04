@@ -67,7 +67,16 @@ describe('flattenResults', function () {
 });
 
 describe('serializeResults', function () {
-    it('should output valid JSON');
+    it('should output valid JSON', function () {
+        var obj = [{
+            id: 'foo',
+            name: 'bar'
+        }, {
+            id: 'baz',
+            name: 'foobar'
+        }];
+        scraper.serializeResults(obj).should.equal('[{"id":"foo","name":"bar"},{"id":"baz","name":"foobar"}]');
+    });
 });
 
 describe('outputFile', function () {
@@ -84,17 +93,28 @@ describe('createHash', function () {
 
 describe('createLink', function () {
     it('should create a correctly formatted link object', function () {
-        scraper.createLink('stephentudor.com', 'loremipsum.jpg').should.eql({
+        scraper.createLink('http://stephentudor.com', 'loremipsum.jpg').should.eql({
             id: '49bffec8347b63c8c219eb069addd18d',
             url: 'http://stephentudor.com/loremipsum.jpg',
             name: 'loremipsum.jpg',
-            origin: 'stephentudor.com'
+            domain: 'stephentudor.com'
         });
     });
 });
 
 describe('harvestElements', function () {
-    it('should return an array of DOM elements');
+    var body = '<div><span>foo</span><span>bar</span><span>baz</span></div>';
+    it('should return an array-like object of DOM elements, simple selector', function () {
+        var harvested = scraper.harvestElements(body, 'span')
+        harvested.should.be.an.Object;
+        harvested.length.should.eql(3);
+    });
+    it('should return an array-like object of DOM elements, complex selector', function () {
+        var harvested = scraper.harvestElements(body, 'div > span:nth-child(2)')
+        harvested.should.be.an.Object;
+        harvested.length.should.eql(1);
+        harvested.eq(0).text().should.eql('bar');
+    });
 });
 
 describe('processRequest', function () {
