@@ -5,4 +5,5 @@ block content
   p Welcome to #{title}
     ul
       each image, index in settings.images
-        li= index + ' : ' + image.url
+        li= index + ' : '
+          a(href=image.url) #{image.url}
