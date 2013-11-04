@@ -2,26 +2,35 @@
     "name": "imgg.es",
     "description": "Proxy for the most awesome image sites in the universe",
     "homepage": "http://imgg.es",
-    "maintainers": "stephen <smtudor@gmail.com>",
-    "author": "Stephen Tudor <smtudor@gmail.com>",
+    "contributors": [
+        {
+            "name": "Stephen Tudor",
+            "email": "smtudor@gmail.com"
+        },
+        {
+            "name": "John Michel",
+            "email": "john.michel@gmail.com"
+        }
+    ],
     "repository": {
         "type": "git",
         "url": "git://github.com/smt/imgg.es.git"
     },
-    "users": {
-        "johnmichel": true
-    },
+    "license" : "MIT",
     "version": "0.0.1",
     "scripts": {
         "start": "node app.js"
     },
     "dependencies": {
-        "express": "3.3.4",
+        "express": "3.4.4",
         "jade": "*",
         "stylus": "*",
         "async": "0.2.9",
-        "request": "2.25.0",
-        "cheerio": "0.12.0",
-        "exec-time" : "0.0.2"
+        "request": "2.27.0",
+        "cheerio": "0.12.3",
+        "exec-time": "0.0.2"
+    },
+    "devDependencies" : {
+        "should" : "2.0.2"
     }
 }
