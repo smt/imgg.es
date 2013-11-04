@@ -5,12 +5,14 @@
 var express = require('express'),
     routes = require('./routes'),
     image = require('./routes/image'),
+    images = require('./images.json'),
     http = require('http'),
     path = require('path'),
     app = express();
 
 // all environments
 app.set('title', 'imgg.es');
+app.set('images', images);
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
