@@ -1,5 +1,5 @@
 var scraper = require('../lib/scraper'),
-should = require('should');
+    should = require('should');
 
 describe('compareItems', function () {
     it('should throw error if A is not the expected type', function () {

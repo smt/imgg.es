@@ -1,5 +1,5 @@
 var request = require('request'),
-should = require('should');
+    should = require('should');
 
 describe('Sites are accessible', function() {
     it('bukk.it should be online', function() {

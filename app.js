@@ -2,13 +2,12 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var image = require('./routes/image');
-var http = require('http');
-var path = require('path');
-
-var app = express();
+var express = require('express'),
+    routes = require('./routes'),
+    image = require('./routes/image'),
+    http = require('http'),
+    path = require('path'),
+    app = express();
 
 // all environments
 app.set('title', 'bukwiltk.es');
