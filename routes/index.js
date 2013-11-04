@@ -3,5 +3,5 @@
  */
 
 exports.index = function(req, res){
-    res.render('index', { title: 'bukwiltk.es' });
+    res.render('index', { title: 'imgg.es'});
 };

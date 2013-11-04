@@ -10,7 +10,7 @@ var express = require('express'),
     app = express();
 
 // all environments
-app.set('title', 'bukwiltk.es');
+app.set('title', 'imgg.es');
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
