@@ -28,9 +28,11 @@
         "async": "0.2.9",
         "request": "2.27.0",
         "cheerio": "0.12.3",
-        "exec-time": "0.0.2"
+        "exec-time": "0.0.2",
+        "transformers": "2.1.0"
     },
     "devDependencies" : {
+        "markdown": "*",
         "mocha": "1.13.0", 
         "should": "2.0.2"
     },
