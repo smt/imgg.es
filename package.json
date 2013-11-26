@@ -31,7 +31,8 @@
         "exec-time": "0.0.2"
     },
     "devDependencies" : {
-        "should" : "2.0.2"
+        "mocha": "1.13.0", 
+        "should": "2.0.2"
     },
     "private": true
 }

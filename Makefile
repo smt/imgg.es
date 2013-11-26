@@ -1,3 +1,3 @@
 .PHONY: test
 test:
-	mocha test
+	@NODE_ENV=test ./node_modules/.bin/mocha test
