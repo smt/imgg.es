@@ -26,27 +26,29 @@ describe('compareItems', function () {
     });
     it('should correctly sort an array of objects', function () {
         [
-            { name: 'john' },
-            { name: 'stephen' },
-            { name: 'abe' },
-            { name: 'chris' },
-            { name: 'matt' },
-            { name: 'ashton' },
-            { name: 'scott' },
-            { name: 'peter' },
-            { name: 'mingma' },
+            { name: 'jeanmichel' },
+            { name: 'kiril1' },
+            { name: 'quidmonkey' },
+            { name: 'chronicles' },
+            { name: 'brophdawg' },
+            { name: 'trashton' },
+            { name: 'kiril0' },
+            { name: 'tim' },
+            { name: 'huntaur' },
+            { name: 'tudes' },
             { name: 'ryan' }
         ].sort(scraper.compareItems).should.eql([
-            { name: 'abe' },
-            { name: 'ashton' },
-            { name: 'chris' },
-            { name: 'john' },
-            { name: 'matt' },
-            { name: 'mingma' },
-            { name: 'peter' },
+            { name: 'brophdawg' },
+            { name: 'chronicles' },
+            { name: 'huntaur' },
+            { name: 'jeanmichel' },
+            { name: 'kiril0' },
+            { name: 'kiril1' },
+            { name: 'quidmonkey' },
             { name: 'ryan' },
-            { name: 'scott' },
-            { name: 'stephen' }
+            { name: 'tim' },
+            { name: 'trashton' },
+            { name: 'tudes' }
         ]);
     });
 });
