@@ -1,5 +1,6 @@
 var scraper = require('../lib/scraper'),
-    should = require('should');
+    should = require('should'),
+    fs = require('fs');
 
 describe('compareItems', function () {
     it('should throw error if A is not the expected type', function () {
@@ -80,9 +81,34 @@ describe('serializeResults', function () {
 });
 
 describe('outputFile', function () {
-    it('should throw error if obj is empty');
-    it('should throw error if obj is empty');
-    it('should write a JSON file to disk');
+    var str = '{"foo":"bar"}';
+    var filepath = 'test.json';
+
+    it('should write a JSON file to disk without error', function (done) {
+        scraper.outputFile(str, filepath, function (err) {
+            if (err) return done(err);
+            fs.readFile(filepath, { encoding: 'utf8' }, function (err, data) {
+                if (err) return done(err);
+                data.should.equal(str);
+                fs.unlink(filepath, done);
+            });
+        });
+    });
+
+    it('should throw error if arguments are invalid', function () {
+        scraper.outputFile.bind(scraper, '', filepath).should.throw();
+        scraper.outputFile.bind(scraper, null, filepath).should.throw();
+        scraper.outputFile.bind(scraper, undefined, filepath).should.throw();
+        scraper.outputFile.bind(scraper, {}, filepath).should.throw();
+        scraper.outputFile.bind(scraper, str, '').should.throw();
+        scraper.outputFile.bind(scraper, str, null).should.throw();
+        scraper.outputFile.bind(scraper, str, undefined).should.throw();
+        scraper.outputFile.bind(scraper, str, {}).should.throw();
+        scraper.outputFile.bind(scraper, str, filepath, 'durr').should.throw();
+        scraper.outputFile.bind(scraper, str, filepath, null).should.throw();
+        scraper.outputFile.bind(scraper, str, filepath, {}).should.throw();
+        scraper.outputFile.bind(scraper, str, filepath).should.throw();
+    });
 });
 
 describe('createHash', function () {
@@ -118,6 +144,24 @@ describe('harvestElements', function () {
 });
 
 describe('processRequest', function () {
-    it('should return an array of link objects');
+    var body = '<div><a href="foo.gif">foo</a></div>';
+    var site = {
+        url: 'http://stephentudor.com',
+        selector: 'a[href$=".gif"]'
+    };
+
+    it('should return an array', function () {
+        var links = scraper.processRequest(site, body);
+        links.should.be.an.Array;
+        links.length.should.eql(1);
+    });
+
+    it('should return an array of properly formatted link objects', function () {
+        var link = scraper.processRequest(site, body)[0];
+        link.id.should.be.ok;
+        link.url.should.equal('http://stephentudor.com/foo.gif');
+        link.name.should.equal('foo.gif');
+        link.domain.should.equal('stephentudor.com');
+    });
 });
 
