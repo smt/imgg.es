@@ -114,15 +114,15 @@ describe('outputFile', function () {
 });
 
 describe('createHash', function () {
-    it('should create a valid MD5 hash of the given string', function () {
-        scraper.createHash('http://stephentudor.com').should.equal('0288d1f083e5fef2c5a53d85d87e6aa5');
+    it('should create a valid SHA-1 hash of the given string', function () {
+        scraper.createHash('http://stephentudor.com').should.equal('3963e9443d53f13393bf314ad514af6b730798e7');
     });
 });
 
 describe('createLink', function () {
     it('should create a correctly formatted link object', function () {
         scraper.createLink('http://stephentudor.com', 'loremipsum.jpg').should.eql({
-            id: '49bffec8347b63c8c219eb069addd18d',
+            id: 'f40362b92726e74b0eff0a4a3a6732a6ef76617f',
             url: 'http://stephentudor.com/loremipsum.jpg',
             name: 'loremipsum.jpg',
             domain: 'stephentudor.com'
