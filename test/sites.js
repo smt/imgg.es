@@ -1,6 +1,6 @@
 var request = require('request'),
     should = require('should'),
-    sites = require('../config.js').sites;
+    sites = require('../conf/sites').sites;
 
 describe('Sites are accessible', function() {
     var urls = sites.map(function (site) {
