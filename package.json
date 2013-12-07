@@ -22,13 +22,16 @@
         "start": "node app.js"
     },
     "dependencies": {
-        "express": "3.4.4",
-        "jade": "*",
-        "stylus": "*",
         "async": "0.2.9",
-        "request": "2.27.0",
         "cheerio": "0.12.3",
         "exec-time": "0.0.2",
+        "express": "3.4.4",
+        "jade": "*",
+        "mongoose": "3.8.1",
+        "node-promise": "0.5.10",
+        "request": "2.27.0",
+        "short-id": "0.1.0-1",
+        "stylus": "*",
         "transformers": "2.1.0"
     },
     "devDependencies" : {
