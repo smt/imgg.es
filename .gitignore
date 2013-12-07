@@ -3,3 +3,4 @@ images.json
 .DS_Store
 *.css
 npm-debug.log
+conf/db.js
