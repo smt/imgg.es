@@ -5,7 +5,7 @@ Running
 -------
 
     npm install
-    node scrape
+    node build
     node app
 
 Contributing
