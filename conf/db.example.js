@@ -17,7 +17,7 @@ var config = {
     port: '',
     db: 'imgges'
 };
-config.connectionString = getConnectionString(config);
 
+var dbURI = getConnectionString(config);
 
-exports.config = config;
+exports.dbURI = dbURI;
