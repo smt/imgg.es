@@ -6,6 +6,7 @@ var express = require('express'),
     routes = require('./routes'),
     image = require('./routes/image'),
     images = require('./images.json'),
+    shorturl = require('./routes/shorturl'),
     http = require('http'),
     path = require('path'),
     app = express();
@@ -31,7 +32,9 @@ if ('development' === app.get('env')) {
     app.use(express.errorHandler());
 }
 
+// define routes
 app.get('/', routes.index);
+app.get(/^\/[0-9a-f]{6}/, shorturl.find);
 app.get('/images.json', image.list);
 
 http.createServer(app).listen(app.get('port'), function(){
