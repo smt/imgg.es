@@ -6,6 +6,8 @@ var express = require('express'),
     routes = require('./routes'),
     image = require('./routes/image'),
     images = require('./images.json'),
+    mongodb = require('./conf/db').dbURI,
+    resourceModel = require('./lib/resourceModel'),
     shorturl = require('./routes/shorturl'),
     http = require('http'),
     path = require('path'),
@@ -32,10 +34,13 @@ if ('development' === app.get('env')) {
     app.use(express.errorHandler());
 }
 
+// connect to db
+resourceModel.connect(mongodb);
+
 // define routes
-app.get('/', routes.index);
-app.get(/^\/[0-9a-f]{6}/, shorturl.find);
+app.get(/^\/[0-9a-f]{6}/, shorturl.redirect);
 app.get('/images.json', image.list);
+app.get('/', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
