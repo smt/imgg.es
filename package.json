@@ -26,6 +26,7 @@
         "cheerio": "0.12.3",
         "exec-time": "0.0.2",
         "express": "3.4.4",
+        "gm": "1.14.1",
         "jade": "*",
         "mongoose": "3.8.1",
         "node-promise": "0.5.10",
