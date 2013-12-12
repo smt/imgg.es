@@ -30,6 +30,7 @@
         "gm": "1.14.1",
         "jade": "*",
         "mongoose": "3.8.1",
+        "mongoose-pagination": "1.0.0",
         "node-promise": "0.5.10",
         "request": "2.27.0",
         "short-id": "0.1.0-1",

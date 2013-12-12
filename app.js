@@ -41,6 +41,7 @@ resourceModel.connect(mongodb);
 app.get(/^\/[0-9a-f]{6}/, shorturl.redirect);
 app.get('/images.json', image.list);
 app.get('/', routes.index);
+app.get('/at/:page/by/:size', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
