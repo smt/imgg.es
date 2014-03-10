@@ -17,7 +17,7 @@
         "url": "git://github.com/smt/imgg.es.git"
     },
     "license" : "MIT",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "engines": {
         "node": "~0.10.3"
     },
