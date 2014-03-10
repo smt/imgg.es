@@ -18,8 +18,12 @@
     },
     "license" : "MIT",
     "version": "0.0.1",
+    "engines": {
+        "node": "~0.10.3"
+    },
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "test": "make test"
     },
     "dependencies": {
         "async": "0.2.9",
@@ -38,7 +42,7 @@
     },
     "devDependencies" : {
         "markdown": "*",
-        "mocha": "1.13.0", 
+        "mocha": "1.13.0",
         "should": "2.0.2"
     },
     "private": true
