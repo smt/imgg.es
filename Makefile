@@ -1,4 +1,4 @@
-REPORTER = nyan
+REPORTER = spec
 
 test-bdd: 
 	@./node_modules/.bin/mocha \
